@@ -9,4 +9,4 @@
 from waitress import serve
 import main
 
-serve(main.app, host='192.168.1.45', port=5000)
+serve(main.app, host='0.0.0.0', port=5000)
