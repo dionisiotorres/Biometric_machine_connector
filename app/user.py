@@ -32,7 +32,10 @@ class User(Resource):
                 'user':[]
             }
             for uid in user:
-                data['user'].append({'uid': uid.uid,'name':uid.name,'user_id':uid.user_id})
+                privilege = 'User'
+                if uid.privilege == const.USER_ADMIN:
+                    privilege = 'Admin'
+                data['user'].append({'uid': uid.uid,'name':uid.name,'user_id':uid.user_id,'privilege':privilege,'group_id':uid.group_id})
             return {'status':'success','data' : data}
         except Exception as e:
             return {'status' : format(e)}

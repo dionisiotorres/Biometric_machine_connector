@@ -28,6 +28,7 @@ class Attendance(Resource):
             conn = zk.connect()
             # conn.disable_device()
             attendance = conn.get_attendance()
+            conn.disconnect()
             data = []
             for atten in attendance:
                 data.append({'user_id': atten.user_id,'timestamp':str(atten.timestamp),'status':atten.status,'punch':atten.punch})

@@ -6,6 +6,7 @@ app = Flask(__name__)
 from . import attendance
 from . import controller
 from . import user
+from . import base
 
 if __name__ == "__main__":
    logging.basicConfig(filename='error.log',level=logging.DEBUG)
