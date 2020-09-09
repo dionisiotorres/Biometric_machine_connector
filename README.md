@@ -3,6 +3,9 @@
 **Before Started :**
 
 1. run `pip install -r requirements.txt`
+2. run `python3 -m venv virtualenv`
+3. run `source virtualenv/bin/active`
+4. run `pip install -r requirements.txt`
 
 **Environment**
 1. add `.env`
