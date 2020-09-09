@@ -1,11 +1,12 @@
 from app import app
+from ZK import ZK, const
 from flask import Flask, request, jsonify, make_response
 from flask_restful import Resource, Api
 import sys
 import os
 import json
-sys.path.insert(1,os.path.abspath("./pyzk"))
-from zk import ZK, const
+# sys.path.insert(1,os.path.abspath("./pyzk"))
+# from zk import ZK, const
 
 app.config['DEVICE_IP'] = os.getenv('BIOMETRIC_DEVICE_IP')
 app.config['DEVICE_PORT'] = int(os.getenv('BIOMETRIC_DEVICE_PORT'))

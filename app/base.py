@@ -1,11 +1,12 @@
 from app import app
+from ZK import ZK
 from flask import Flask, request, jsonify, make_response
 from flask_restful import Resource, Api
 import sys
 import os
 import json
-sys.path.insert(1,os.path.abspath("./pyzk"))
-from zk import ZK, const
+# sys.path.insert(1,os.path.abspath("./pyzk"))
+
 
 app.config['DEVICE_IP'] = os.getenv('BIOMETRIC_DEVICE_IP')
 app.config['DEVICE_PORT'] = int(os.getenv('BIOMETRIC_DEVICE_PORT'))
@@ -30,7 +31,7 @@ class Base(Resource):
             # conn.disable_device()
             return {'status':'success','message':'Biometric Device \'%s\' is Up/Reachable' % (app.config['DEVICE_IP'])}
         except Exception as e:
-            return {'status':'failed','message':'Biometric Device \'%s\' is Down/Unreachable' % (app.config['DEVICE_IP'])}
+            return {'status':'failed','error': format(e),'message':'Biometric Device \'%s\' is Down/Unreachable' % (app.config['DEVICE_IP'])}
             # return {'status' : format(e)}
 
     @app.route('/restart', methods = ['GET'])
