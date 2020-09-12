@@ -2,10 +2,12 @@
 
 **Before Started :**
 
-1. run `pip install -r requirements.txt`
+1. run `sudo pip3 install virtualenv`
 2. run `python3 -m venv virtualenv`
 3. run `source virtualenv/bin/active`
 4. run `pip install -r requirements.txt`
+5. run `export FLASK_APP=main.py`
+6. run `python3 -m flask run`
 
 **Environment**
 1. add `.env`
